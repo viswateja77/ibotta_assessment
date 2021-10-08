@@ -11,4 +11,4 @@ Code folder:
   TO run the main.py give the args for python executable file location main.py, ibotta db location, csv input files location, output text files location<br>
   ##### Executable command: 
   
-  python <absolute path for main/main.py> <path for db file> <Path for csv_input folder> <output path folder>
+  "python <absolute path for main/main.py> <path for db file> <Path for csv_input folder> <output path folder>"
