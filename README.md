@@ -13,6 +13,6 @@ Code folder:
   
   "python <absolute path for main/main.py> <path for db file> <Path for csv_input folder> <output path folder>"
 
-  #####sample:<br>
+  ##### sample:<br>
   python C:\Users\User\Desktop\ibotta\Python\main.py 'C:\Users\User\Desktop\ibotta\Database\ibotta.db' 'C:\Users\User\Desktop\ibotta\CSV_
 data' 'C:\Users\User\Desktop\ibotta\Output'
