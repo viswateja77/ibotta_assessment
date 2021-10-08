@@ -26,6 +26,9 @@ data' 'C:\Users\User\Desktop\ibotta\Output'<br>
   the query results will be stored in this path.
   
   ### Database:<br>
-  The database .db file is stored in this location.
+  The database .db file is stored in this location.<br>
+  
+  ###Queries.txt has the queries for the questions asked and description for each of them.
+  
   
  
