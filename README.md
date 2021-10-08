@@ -27,3 +27,4 @@ data' 'C:\Users\User\Desktop\ibotta\Output'<br>
   ### Database:<br>
   The database .db file is stored in this location.
   
+ 
