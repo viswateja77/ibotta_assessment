@@ -1,4 +1,6 @@
-query1 = """SELECT 
+1) What is the total counts of offer activations for each customer?
+desc: used customer_offers table and count for each customer on aggregating at customer_id
+"""SELECT 
   CUSTOMER_ID, 
   count(1) as count_of_offer_activations 
 from 
@@ -11,16 +13,21 @@ order by
   count_of_offer_activations desc"""
   
   
-  
-query2 = """ SELECT 
+
+2) Provide a list of customers that who haven't activated an offer in the last couple months?
+desc : used current date-2 months to get the results. In data all the records are in march 2021. so mostly all the records 2 monhs earlier.
+""" SELECT 
   DISTINCT CUSTOMER_ID 
 FROM 
   customer_offers co 
 where 
   ACTIVATED < DATE('now', '-2 months') """
   
-  
-query3 = """with cte as (
+
+3) What is the conversion rate of activated to complete for each customer?
+desc: used ACTIVATED and VERIFIED columns in the customer_offers table for each customer. conversion rate calculation = (no:verified/no:of activated)* 100 
+aggregated on customer_id to get conversion rate for each customer.
+"""with cte as (
   SELECT 
     CUSTOMER_ID, 
     COUNT(ACTIVATED) as ACTIVATED_count 
@@ -55,8 +62,9 @@ order by
 """
 
 
-
-query4 = """ select 
+What is the total amount of redemption for each customer?
+desc: Joined customer_offers to get customer_id and customer_offer_redemptions to get offer_amount for each customer and aggregatting on customer_id
+""" select 
   co.CUSTOMER_ID, 
   sum(OFFER_AMOUNT) as amount 
 from 
