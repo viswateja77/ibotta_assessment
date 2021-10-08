@@ -31,14 +31,14 @@ SELECT cte.customer_id, (cte1.verified_count*1.0/cte.activated_count)*100 as con
 
 
 
-def main():
+def main(argv):
     # specify the path location for ibotta.db
-    ibotta = db_utils.create_connection(r'C:\Users\User\Desktop\ibotta\Database\ibotta.db')  # specify the path location for ibotta.db
-    files_location = r"C:\Users\User\Desktop\ibotta\CSV_data
+    ibotta = db_utils.create_connection(argv[1])  # specify the path location for ibotta.db
+    files_location = argv[2]
     #inserting the records
-    insert_records(ibotta, files_location)
-    #specify the path for utput location
-    output_files = r'C:\Users\User\Desktop\ibotta\Output'
+    #insert_records(ibotta, files_location)
+    #specify the path for output location
+    output_files = argv[3]
     #query the db
     query_for_questions(ibotta,output_files)
 
@@ -46,4 +46,6 @@ def main():
 
 # run mainv
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) != 4:
+        raise Exception('Incorrect number of arguments passed')
+    main(sys.argv[:])
