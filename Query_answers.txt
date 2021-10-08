@@ -1,0 +1,68 @@
+query1 = """SELECT 
+  CUSTOMER_ID, 
+  count(1) as count_of_offer_activations 
+from 
+  customer_offers cor 
+where 
+  ACTIVATED != '' 
+group by 
+  1 
+order by 
+  count_of_offer_activations desc"""
+  
+  
+  
+query2 = """ SELECT 
+  DISTINCT CUSTOMER_ID 
+FROM 
+  customer_offers co 
+where 
+  ACTIVATED < DATE('now', '-2 months') """
+  
+  
+query3 = """with cte as (
+  SELECT 
+    CUSTOMER_ID, 
+    COUNT(ACTIVATED) as ACTIVATED_count 
+  from 
+    customer_offers 
+  where 
+    ACTIVATED != '' 
+  group by 
+    CUSTOMER_ID
+), 
+cte1 as (
+  SELECT 
+    CUSTOMER_ID, 
+    count(VERIFIED) as VERIFIED_count 
+  from 
+    customer_offers co 
+  where 
+    VERIFIED != '' 
+  group by 
+    CUSTOMER_ID
+) 
+SELECT 
+  cte.customer_id, 
+  (
+    cte1.verified_count * 1.0 / cte.activated_count
+  )* 100 as conversion_rate 
+from 
+  cte 
+  join cte1 on cte.customer_id = cte1.customer_id 
+order by 
+  conversion_rat
+"""
+
+
+
+query4 = """ select 
+  co.CUSTOMER_ID, 
+  sum(OFFER_AMOUNT) as amount 
+from 
+  customer_offer_redemptions cor 
+  join customer_offers co on cor.CUSTOMER_OFFER_ID = co.ID 
+group by 
+  co.CUSTOMER_ID 
+order by 
+  2 desc"""
