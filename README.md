@@ -9,6 +9,7 @@
 ###Code folder Python:
   The code folder contains main.py and db_utils.py
   remove the '#' in Line 39 if new records to be inserted
+  keep the db_utils file in the main.py location.
   TO run the main.py give the args for python executable file location main.py, ibotta db location, csv input files location, output text files location<br>
   #### Executable command: 
   
